@@ -79,8 +79,15 @@
                 output = [],
                 sNumber = cNum.toString();
             
-            if(cNum.length!=8) return;
-
+            if(cNum.length!=8) {
+                document.getElementById("inPole").value = "";
+                disableBtn();
+                return;
+            }
+            //**********************
+            lookupGrid();
+            return;
+            //**********************
             output.push(1);
             output.push(2);
             
@@ -106,8 +113,12 @@
                 if(rows[i].indexOf(str) + 1){
                     gridTF = rows[i][1];
                     document.getElementById("inPole").value = "圖號座標:" + gridTF;
+                    grid2twd67();
+                    execConvert();
+                    enableBtn();
                     break;
                 } else {
+                    disableBtn();
                     document.getElementById("inPole").value = "無此電號";
                 }
             }
@@ -151,6 +162,21 @@
             latWGS84 = data1[1];
             // document.getElementById("inPole").value = latWGS84;
         }
+
+        function disableBtn(){
+            document.getElementById("btnOpenGM").disabled = true;
+            document.getElementById("btnOpenOSM").disabled = true;
+            document.getElementById("btnOpenNLSC").disabled = true;
+            document.getElementById("btnOpenLINE").disabled = true;
+        }
+
+        function enableBtn(){
+            document.getElementById("btnOpenGM").disabled = false;
+            document.getElementById("btnOpenOSM").disabled = false;
+            document.getElementById("btnOpenNLSC").disabled = false;
+            document.getElementById("btnOpenLINE").disabled = false;
+        }
+        
         
     </script>
 </head>
@@ -162,7 +188,7 @@
 	    <div id="divInGrid">
         <center>
         <input type="text" value="12" id="districtNum" maxlength="2" size="2"readonly />
-        <input type="search" placeholder="用戶電號" id="customNum" maxlength="8" size="11" oninput="calcChkNum();lookupGrid();grid2twd67();execConvert();" onchange="calcChkNum();lookupGrid();grid2twd67();execConvert();" />
+        <input type="search" placeholder="用戶電號" id="customNum" maxlength="8" size="11" oninput="calcChkNum();" onchange="calcChkNum();" />
         <input type="text" value="" id="chkNum" maxlength="1" size="1" readonly />
         <!-- <button type="button" class="button" id="btnChk" onclick="" disabled=true></button> -->
         </center>
