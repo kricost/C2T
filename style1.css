@@ -1,0 +1,178 @@
+@font-face {
+	font-family: Inconsolata;
+	src: url(Inconsolata.otf );
+	font-weight: bold;
+}
+
+html {
+	touch-action: none;
+}
+body {
+	/*margin: 20px;
+	background-color: whtiesmoke;
+	font-family:"Inconsolata";*/
+	background-color: black;
+}
+
+#divForm{
+	/*background-image: url("./background.png");*/
+	/*background-image: linear-gradient(125deg, blue,red,gold);*/
+	background: linear-gradient(149deg, #1ae4eb, #246655, #466624, #a448d2, #d3dc2f, #ff0000);
+    background-size: 1200% 1200%;
+	max-height: 800px;
+	width:350px;
+	height:85vh;
+	border-radius: 32px;
+	position: absolute;
+	margin: auto;
+	padding: 10px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+
+	-webkit-animation: bg-gradient 59s ease infinite;
+    -moz-animation: bg-gradient 59s ease infinite;
+    animation: bg-gradient 59s ease infinite;
+}
+
+@-webkit-keyframes bg-gradient {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@-moz-keyframes bg-gradient {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@keyframes bg-gradient { 
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+
+#divLogo {
+	background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position: 0% 80%;
+    background-size: 100%;
+    text-align:center;
+    width: 100%;
+    height: 15%;
+}
+
+#divInGrid{
+	width: 100%;
+}
+
+input {
+	background-color: #9DE0AD;
+	border: 2px solid black;
+	/*border-radius: 32px;*/
+	/*margin-left:10px;*/
+	padding-left: 16px;
+	padding-right: 16px;
+	font-family: "Inconsolata";
+	font-weight: "bold";
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+#districtNum{
+    width: 28%;
+    text-align: center;
+    font-size:32px;
+    border-radius: 32px 32px 32px 32px;
+    text-transform:uppercase
+}
+
+#customNum{
+	width: 48%;
+	font-size:32px;
+	border-radius: 32px 32px 32px 32px;
+	text-transform:uppercase
+}
+
+#chkNum{
+    width: 20%;
+    text-align: center;
+    font-size:32px;
+    border-radius: 32px 32px 32px 32px;
+    text-transform:uppercase
+}
+
+#inPole{
+	width:350px;
+	font-size:32px;
+	border-radius: 16px 16px 16px 16px;
+	text-transform:uppercase;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+:focus {
+	outline: none;
+}
+
+#divButton1{
+	width:350px;
+    align-items: center;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.button {
+	background-color: rgba(0,0,0,0.5);
+	border: 2px solid black;
+	border-radius: 16px;
+	color: black;
+	padding: 0px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 0px 0px;
+	cursor: pointer;
+	/*width: 172px;*/
+	/*height: 40px;*/
+}
+
+#btnOpenGM {
+    background-image: url(btnGM.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:100%;
+    width: 170px;
+    height: 170px;
+}
+
+#btnOpenOSM {
+    background-image: url(btnOSM.png);
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    background-size: 85%;
+    width: 170px;
+    height: 170px
+}
+
+#btnOpenNLSC {
+    background-image: url(btnNLSC.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    width: 170px;
+    height: 170px;
+}
+
+#btnOpenLINE {
+    background-image: url(btnLINE.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+    width: 170px;
+    height: 170px;
+}
