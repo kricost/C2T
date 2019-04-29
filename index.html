@@ -72,36 +72,32 @@
             window.open(url, '_blank');
         }
 
-        function calcChkNum(){            
+        function calcChkNum(){   
+            document.getElementById("chkNum").value = "";       
             var cNum = document.getElementById("customNum").value.split("");
             var c10 = [2,1,2,1,2,1,2,1,2,1];
-            var number = 12354987,
-                output = [],
-                sNumber = cNum.toString();
             
             if(cNum.length!=8) {
                 document.getElementById("inPole").value = "";
                 disableBtn();
                 return;
             }
-            //**********************
-            lookupGrid();
-            return;
-            //**********************
-            output.push(1);
-            output.push(2);
+
+            cNum.unshift(1,2);
             
-            for (var i = 0, len = sNumber.length; i < len; i += 1) {
-                output.push(+sNumber.charAt(i));
+            var sum = 0;
+            for (var i = 0; i < cNum.length; i += 1) {
+                cNum[i] = cNum[i] * c10[i];
+                if(cNum[i] > 9) {
+                    cNum[i] -= 9;
+                }
+                sum += cNum[i];
             }
 
-            for (var i = 0; i < 10; i += 1) {
-                output[i] = (output[i] * c10[i]) % 10;
-            }
-            // for (var i = 0; i < 10; i += 1) {
-            //     cNum[i] = +cNum[i] + +cNum[i+1];
-            // }
+            document.getElementById("chkNum").value = sum % 10;
+            lookupGrid();
             
+            // document.getElementById("inPole").value = cNum;
             // document.getElementById("inPole").value = cNum[0];
             // document.getElementById("inPole").value = cNum.join("");
             // document.getElementById("customNum").value;
