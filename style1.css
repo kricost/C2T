@@ -18,10 +18,10 @@ body {
 	/*background-image: url("./background.png");*/
 	/*background-image: linear-gradient(125deg, blue,red,gold);*/
 	background: linear-gradient(149deg, #1ae4eb, #246655, #466624, #a448d2, #d3dc2f, #ff0000);
-    background-size: 1200% 1200%;
+        background-size: 1200% 1200%;
 	max-height: 800px;
 	width:350px;
-	height:85vh;
+	height:calc(100% - 400px);
 	border-radius: 32px;
 	position: absolute;
 	margin: auto;
