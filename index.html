@@ -67,8 +67,8 @@
         function openLINE() {
             var url = "http://line.naver.jp/R/msg/text/?";
             var map = "https://www.google.com/maps/search/?api=1&query=" + latWGS84 + "," + lonWGS84;
-            url += encodeURIComponent(document.getElementById("inPole").value) + "%0D%0A" + encodeURIComponent(document.getElementById("inGrid").value) + "%0D%0A" + map;
-
+            url += encodeURIComponent(document.getElementById("customNum").value) + "%0D%0A" + encodeURIComponent(document.getElementById("inPole").value) + "%0D%0A" + map;
+            
             window.open(url, '_blank');
         }
 
