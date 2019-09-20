@@ -105,20 +105,31 @@
 
         function lookupGrid() {
             str = document.getElementById("customNum").value;
-            for(var i=0; i < rows.length; i++){
-                if(rows[i].indexOf(str) + 1){
-                    gridTF = rows[i][1];
-                    document.getElementById("inPole").value = "圖號座標:" + gridTF;
-                    grid2twd67();
-                    execConvert();
-                    enableBtn();
-                    break;
-                } else {
-                    disableBtn();
-                    document.getElementById("inPole").value = "無此電號";
-                }
-            }
-        }
+            <!-- for(var i=0; i < rows.length; i++){ -->
+                <!-- if(rows[i].indexOf(str) + 1){ -->
+                    <!-- gridTF = rows[i][1]; -->
+                    <!-- document.getElementById("inPole").value = "圖號座標:" + gridTF; -->
+                    <!-- grid2twd67(); -->
+                    <!-- execConvert(); -->
+                    <!-- enableBtn(); -->
+                    <!-- break; -->
+                <!-- } else { -->
+                    <!-- disableBtn(); -->
+                    <!-- document.getElementById("inPole").value = "無此電號"; -->
+                <!-- } -->
+            <!-- } -->
+			let row = BinSearch(rows, str, 0, rows.length-1);
+			if(row + 1) {
+			    gridTF = rows[row][1];
+			    document.getElementById("inPole").value = gridTF;
+				grid2twd67();
+                execConvert();
+                enableBtn();
+		    } else {
+			    disableBtn();
+				document.getElementById("inPole").value = "無此電號";
+			}
+	    }
 
         function grid2twd67() {
             grid = gridTF.toUpperCase();
@@ -173,7 +184,17 @@
             document.getElementById("btnOpenLINE").disabled = false;
         }
         
-        
+		function BinSearch(arr, x, start, end) { 
+            if (start > end) return -1; 
+           
+            let mid=Math.floor((start + end)/2); 
+            if (arr[mid][0]===x) return mid; 
+                  
+            if(arr[mid] > x)
+                return BinSearch(arr, x, start, mid-1); 
+            else
+                return BinSearch(arr, x, mid+1, end); 
+        }
     </script>
 </head>
 
@@ -210,7 +231,7 @@
                 rows = data.slice();
         }, )
         .done(function() {
-            document.getElementById("inPole").value = "完成(0830)";
+            document.getElementById("inPole").value = "Done(0920)";
         });
     </script>
 </body>
