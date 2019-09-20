@@ -50,7 +50,7 @@
         ];
  
 		function openGM() {
-            var url = "https://www.google.com/maps/search/?api=1&query=" + latWGS84 + "," + lonWGS84;
+            var url = "https://www.google.com/maps/search/?api=1&query=" + latWGS84.toFixed(6) + "," + lonWGS84.toFixed(6);
             window.open(url, '_blank');
         }
 
@@ -66,8 +66,10 @@
 
         function openLINE() {
             var url = "http://line.naver.jp/R/msg/text/?";
-            var map = "https://www.google.com/maps/search/?api=1&query=" + latWGS84 + "," + lonWGS84;
-            url += encodeURIComponent(document.getElementById("customNum").value) + "%0D%0A" + encodeURIComponent(document.getElementById("inPole").value) + "%0D%0A" + map;
+			var num = encodeURIComponent("電號：12" + document.getElementById("customNum").value + document.getElementById("chkNum").value); 
+			var pos = encodeURIComponent("座標：" + document.getElementById("inPole").value);
+            var map = "https://www.google.com/maps/search/?api=1&query=" + latWGS84.toFixed(6) + "," + lonWGS84.toFixed(6);
+            url += num + "%0D%0A" + encodeURIComponent(document.getElementById("inPole").value) + "%0D%0A" + map;
             
             window.open(url, '_blank');
         }
